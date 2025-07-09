@@ -1,47 +1,82 @@
 <script setup lang="ts">
-import HelloWorld from './components/HelloWorld.vue'
-import TheWelcome from './components/TheWelcome.vue'
+import MapBrowser from './components/MapViewer.vue'
+import MapThumbnail from './components/MapThumbnail.vue'
+import RelicGrid from './components/RelicGrid.vue'
+import TextInputs from './components/TextInput.vue'
+import { maps } from '@/data.ts'
+import OpenLinkIcon from './OpenLinkIcon.vue'
 </script>
 
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
-
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
+  <TextInputs></TextInputs>
+  <div class="flex">
+    <RelicGrid></RelicGrid>
+    <div class="thumbnails">
+      <MapThumbnail v-for="map in maps" :map="map" :key="map"></MapThumbnail>
+      <a target="_blank" href="https://transformice.fandom.com/wiki/Fishing_2025" class="wiki-link">
+        <OpenLinkIcon />Wiki</a
+      >
     </div>
-  </header>
-
-  <main>
-    <TheWelcome />
-  </main>
+  </div>
+  <MapBrowser></MapBrowser>
+  <div class="credits text-block">
+    <div>
+      Thanks to everyone who contributed information on Discord &
+      <a
+        href="https://docs.google.com/spreadsheets/d/193P_yJbU66j8pkPUudUnoXi1M708POSIbds2UuXUiIo/"
+        target="_blank"
+        >Google Sheet</a
+      >
+      & <a href="https://breezewiki.com/transformice/wiki/Fishing_2025" target="_blank">Wiki</a>
+    </div>
+    <div class="source-code">
+      <a href="https://github.com/entibo/tfm-fish-tracker" target="_blank">Source code</a>
+    </div>
+  </div>
 </template>
 
-<style scoped>
-header {
-  line-height: 1.5;
+<style>
+.flex {
+  display: flex;
 }
-
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
+.thumbnails {
+  display: flex;
+  width: 360px;
+  flex-wrap: wrap-reverse;
 }
-
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
+.thumbnail {
+  display: contents;
+}
+.thumbnail img {
+  outline: 4px solid var(--color-background);
+  outline-offset: -2px;
+}
+.thumbnail img,
+.wiki-link {
+  width: 120px;
+}
+.wiki-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  svg {
+    margin-right: 0.5em;
   }
+  font-size: 20px;
+}
+.text-block {
+  color: black;
+  background-color: rgb(241, 234, 231);
+}
+.credits {
+  padding-inline: 0.5em;
+  padding-block: 0.2em;
+  margin-top: 4px;
+  display: flex;
+  justify-content: space-between;
 
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
+  a {
+    color: rgb(0, 85, 170);
   }
 }
 </style>
