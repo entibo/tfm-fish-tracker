@@ -11,6 +11,4 @@ const { map } = defineProps<{
   <a class="thumbnail" :href="'#' + map"><MapImage :map="map"></MapImage></a>
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>

@@ -8,5 +8,5 @@ const imageUrl = `/img/map/${mapImages[map]}`
 </script>
 
 <template>
-  <img :src="imageUrl"/>
+  <img :src="imageUrl" />
 </template>
