@@ -24,7 +24,7 @@ import Relic from './RelicIcon.vue'
 .row {
   display: flex;
 }
-img {
+.relic {
   outline: 2px solid var(--color-background);
   outline-offset: -2px;
 }

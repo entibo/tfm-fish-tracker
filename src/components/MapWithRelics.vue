@@ -8,7 +8,7 @@ const { map } = defineProps<{
 </script>
 
 <template>
-  <div :id="map">
+  <div :id="map" class="map">
     <div class="relics"><slot></slot></div>
     <MapImage :map="map"></MapImage>
   </div>
@@ -18,7 +18,7 @@ const { map } = defineProps<{
 .relics {
   position: relative;
 }
-.relics img {
-  position: absolute;
+.map .relic {
+  position: absolute !important;
 }
 </style>
