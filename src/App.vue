@@ -25,9 +25,9 @@ import OpenLinkIcon from './OpenLinkIcon.vue'
       <a
         href="https://docs.google.com/spreadsheets/d/193P_yJbU66j8pkPUudUnoXi1M708POSIbds2UuXUiIo/"
         target="_blank"
-        >Google Sheet</a
+        >the Google Sheet</a
       >
-      & <a href="https://breezewiki.com/transformice/wiki/Fishing_2025" target="_blank">Wiki</a>
+      & <a href="https://breezewiki.com/transformice/wiki/Fishing_2025" target="_blank">the Wiki</a>
     </div>
     <div class="source-code">
       <a href="https://github.com/entibo/tfm-fish-tracker" target="_blank">Source code</a>
@@ -69,6 +69,7 @@ import OpenLinkIcon from './OpenLinkIcon.vue'
   background-color: rgb(241, 234, 231);
 }
 .credits {
+  background-color: rgb(213, 228, 222);
   padding-inline: 0.5em;
   padding-block: 0.2em;
   margin-top: 4px;
