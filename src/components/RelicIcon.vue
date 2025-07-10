@@ -46,10 +46,11 @@ const imageUrl = `/img/relic/${relic}.jpg`
   pointer-events: none;
 }
 .checked .relic-name {
-  bottom: 50%;
-  right: 50%;
-  translate: 50% 50%;
-  font-size: 16px;
+  /* bottom: 50%; */
+  /* right: 50%; */
+  /* translate: 50% 50%; */
+  /* font-size: 16px; */
+  opacity: 60%;
 }
 
 img {
