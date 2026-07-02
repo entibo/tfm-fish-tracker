@@ -1,15 +1,15 @@
 <script setup lang="ts">
-import Relic from './RelicIcon.vue'
+import RelicIcon from './RelicIcon.vue'
 </script>
 
 <template>
   <div class="grid">
     <div class="row" v-for="letter in 'ABCDEF'" :key="letter">
-      <Relic
+      <RelicIcon
         v-for="number in [11, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]"
         :relic="letter + number"
         :key="letter + number"
-      ></Relic>
+      ></RelicIcon>
     </div>
   </div>
 </template>

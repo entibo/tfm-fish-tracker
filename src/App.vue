@@ -2,13 +2,13 @@
 import MapBrowser from './components/MapViewer.vue'
 import MapThumbnail from './components/MapThumbnail.vue'
 import RelicGrid from './components/RelicGrid.vue'
-import TextInputs from './components/TextInput.vue'
+import TextInput from './components/TextInput.vue'
 import { maps } from '@/data.ts'
-import OpenLinkIcon from './OpenLinkIcon.vue'
+import OpenLinkIcon from './components/OpenLinkIcon.vue'
 </script>
 
 <template>
-  <TextInputs></TextInputs>
+  <TextInput></TextInput>
   <div class="flex">
     <RelicGrid></RelicGrid>
     <div class="thumbnails">
