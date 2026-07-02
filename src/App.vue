@@ -13,7 +13,7 @@ import OpenLinkIcon from './components/OpenLinkIcon.vue'
     <RelicGrid></RelicGrid>
     <div class="thumbnails">
       <MapThumbnail v-for="map in maps" :map="map" :key="map"></MapThumbnail>
-      <a target="_blank" href="https://transformice.fandom.com/wiki/Fishing_2025" class="wiki-link">
+      <a target="_blank" href="https://transformice.fandom.com/wiki/Fishing_2026" class="wiki-link">
         <OpenLinkIcon />Wiki</a
       >
     </div>
@@ -27,7 +27,10 @@ import OpenLinkIcon from './components/OpenLinkIcon.vue'
         target="_blank"
         >the Google Sheet</a
       >
-      & <a href="https://breezewiki.com/transformice/wiki/Fishing_2025" target="_blank">the Wiki</a>
+      &
+      <a href="https://breezewiki.com/transformice/wiki/Fishing_2026" target="_blank"
+        >Transformice Wiki</a
+      >
     </div>
     <div class="source-code">
       <a href="https://github.com/entibo/tfm-fish-tracker" target="_blank">Source code</a>
