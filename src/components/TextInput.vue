@@ -89,7 +89,7 @@ function toggleShowMissing() {
       type="text"
       class="text-block"
       :value="rawInput"
-      placeholder="A69 B4 D10"
+      placeholder="A69 B4 D10 …"
       @input="onInput(($event.target as HTMLInputElement).value)"
       @focus="isFocused = true"
       @blur="
@@ -114,6 +114,9 @@ input {
   height: 40px;
   font-size: 18px;
   padding-inline: 0.5em;
+  &::placeholder {
+    color: #a19c92;
+  }
 }
 .icon-checkbox {
   cursor: pointer;
