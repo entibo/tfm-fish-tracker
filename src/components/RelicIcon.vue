@@ -2,7 +2,7 @@
 import { relicStore } from '@/stores/relics.ts'
 import relicValueMap from '@/relics-value.json'
 
-const { relic } = defineProps<{
+const { relic, coins } = defineProps<{
   relic: string
   coins: boolean
 }>()

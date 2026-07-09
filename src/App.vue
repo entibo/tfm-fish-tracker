@@ -21,8 +21,10 @@ import OpenLinkIcon from './components/OpenLinkIcon.vue'
   <MapBrowser></MapBrowser>
   <div class="credits text-block">
     <div>
-      <span>🧀</span> More information on
-      <a href="https://transformice.fandom.com/wiki/Fishing_2026" target="_blank">the Wiki</a>
+      <span>🧀</span> Fishing 2026 |
+      <a href="https://transformice.fandom.com/wiki/Fishing_2026" target="_blank"
+        >Transformice Wiki</a
+      >
     </div>
     <div class="source-code">
       <a href="https://github.com/entibo/tfm-fish-tracker" target="_blank">Source code</a>
