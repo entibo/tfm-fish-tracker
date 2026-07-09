@@ -21,16 +21,8 @@ import OpenLinkIcon from './components/OpenLinkIcon.vue'
   <MapBrowser></MapBrowser>
   <div class="credits text-block">
     <div>
-      Thanks to everyone who contributed information on Discord &
-      <a
-        href="https://docs.google.com/spreadsheets/d/193P_yJbU66j8pkPUudUnoXi1M708POSIbds2UuXUiIo/"
-        target="_blank"
-        >the Google Sheet</a
-      >
-      &
-      <a href="https://breezewiki.com/transformice/wiki/Fishing_2026" target="_blank"
-        >Transformice Wiki</a
-      >
+      <span>🧀</span> More information on
+      <a href="https://transformice.fandom.com/wiki/Fishing_2026" target="_blank">the Wiki</a>
     </div>
     <div class="source-code">
       <a href="https://github.com/entibo/tfm-fish-tracker" target="_blank">Source code</a>
