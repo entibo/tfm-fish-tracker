@@ -9,6 +9,7 @@ import RelicIcon from './RelicIcon.vue'
         v-for="number in [11, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]"
         :relic="letter + number"
         :key="letter + number"
+        :coins="false"
       ></RelicIcon>
     </div>
   </div>
