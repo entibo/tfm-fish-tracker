@@ -3,6 +3,8 @@ import { ref, computed, watchEffect } from 'vue'
 
 import { allRelics, relicStore } from '@/stores/relics.ts'
 
+import { relicListFromString } from '@/util'
+
 // A157 B4 D23410 F9
 
 function relicListToString(relics: string[]) {
@@ -23,23 +25,6 @@ function relicListToString(relics: string[]) {
     }
   }
   return s
-}
-
-function relicListFromString(val: string) {
-  return Array.from(
-    new Set(
-      val
-        .toUpperCase()
-        .trim()
-        .split(/[^\d\w]+/)
-        .filter((s) => s.match(/^[A-F][1-9]+0?$/))
-        .flatMap((A15610) => {
-          const letter = A15610[0]
-          const numbers = A15610.slice(1).match(/\d0?/g)!
-          return numbers.map((n) => letter + n)
-        }),
-    ),
-  )
 }
 
 const isFocused = ref(false)
@@ -115,7 +100,7 @@ input {
   font-size: 18px;
   padding-inline: 0.5em;
   &::placeholder {
-    color: #a19c92;
+    color: var(--color-placeholder);
   }
 }
 .icon-checkbox {

@@ -38,7 +38,7 @@ export const relicStore = reactive({
 })
 
 // Restore from URL or from localStorage
-function restore() {
+function restore(): string[] | undefined {
   const searchParams = new URLSearchParams(location.search)
   const fromURL = searchParams.get('relics')?.split(/[^\d\w]+/) ?? []
   if (fromURL.length) {
@@ -50,12 +50,13 @@ function restore() {
     return fromLocalStorage
   }
 }
+
 const restoredRelics = restore()
 if (restoredRelics) {
   relicStore.list = restoredRelics
 }
 
-// Persiste on change
+// Persist on change
 watch(relicStore, ({ list }) => {
   localStorage.setItem(LOCALSTORAGE_KEY, list.join(' '))
 
