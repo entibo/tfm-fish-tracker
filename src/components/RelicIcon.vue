@@ -70,6 +70,7 @@ const numCoins = relicValueMap[relic]
   height: 16px;
   right: 1px;
   z-index: 3;
+  pointer-events: none;
 }
 .coin {
   width: 11px;
