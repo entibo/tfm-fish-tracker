@@ -42,13 +42,13 @@ function copyText(event: MouseEvent) {
     <MapBrowser></MapBrowser>
     <div class="info text-block">
       <div class="section">
-        <div>Fishing 2026</div>
         <div>
           <span class="date">{{ updateDateString }}</span>
           Relic locations have changed!
         </div>
       </div>
       <div class="section">
+        <div>Fishing 2026</div>
         <div>
           <a href="https://transformice.fandom.com/wiki/Fishing_2026" target="_blank"
             >Transformice Wiki</a

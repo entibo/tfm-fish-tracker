@@ -53,7 +53,7 @@ export const fishingSpotCoordinates = {
   antic1: { x: 240, y: 60 },
   antic2: { x: 380, y: 60 },
   antic3: { x: 630, y: 60 },
-  antic4: { x: 770, y: 60 },
+  antic4: { x: 750, y: 60 },
   antic5: { x: 70, y: 350 },
   antic6: { x: 760, y: 350 },
   antic7: { x: 280, y: 300 },
