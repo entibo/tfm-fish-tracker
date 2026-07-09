@@ -4,7 +4,7 @@ import RelicIcon from './RelicIcon.vue'
 import NewRelic from './NewRelic.vue'
 
 import { type FishingMap, fishingSpotCoordinates } from '@/data.ts'
-import { relicsInFishingSpot } from '@/stores/spots.ts'
+import { editMode, relicsInFishingSpot } from '@/stores/spots.ts'
 import { computed } from 'vue'
 
 const { map } = defineProps<{
@@ -16,11 +16,6 @@ const relicsInFishingSpotsOnThisMap = computed(() => {
     Object.entries(relicsInFishingSpot.value).filter(([spot]) => spot.startsWith(map)),
   )
 })
-
-// const relicsInFishingSpotsOnThisMap = [['waterfall2', ['D2', 'B3']]]
-// const relicsInFishingSpotsOnThisMap = relicsInFishingSpot
-//
-console.log(relicsInFishingSpotsOnThisMap)
 </script>
 
 <template>
@@ -35,7 +30,7 @@ console.log(relicsInFishingSpotsOnThisMap)
       }"
     >
       <RelicIcon v-for="relic in relics" :key="relic" :relic="relic" :coins="true"></RelicIcon>
-      <NewRelic :spot="spot"></NewRelic>
+      <NewRelic v-if="editMode" :spot="spot"></NewRelic>
     </div>
 
     <MapImage :map="map"></MapImage>

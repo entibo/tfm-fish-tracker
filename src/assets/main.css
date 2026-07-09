@@ -9,6 +9,9 @@ a {
   text-decoration: none;
   color: inherit;
 }
+button {
+  cursor: pointer;
+}
 
 :root {
   --color-background: #061415;
@@ -33,5 +36,5 @@ body {
 #app {
   margin: 0 auto;
   /* height: 100%; */
-  display: grid;
+  display: flex;
 }
