@@ -22,7 +22,13 @@ export const maps: FishingMap[] = [
   'crystal',
 ]
 
-export const fishingSpotCoordinates = {
+export const fishingSpotCoordinates: Record<
+  string,
+  {
+    x: number
+    y: number
+  }
+> = {
   waterfall1: { x: 680, y: 20 },
   waterfall2: { x: 700, y: 290 },
   waterfall3: { x: 220, y: 150 },

@@ -5,10 +5,10 @@ import RelicGrid from './components/RelicGrid.vue'
 import TextInput from './components/TextInput.vue'
 import { maps } from '@/data.ts'
 import OpenLinkIcon from './components/OpenLinkIcon.vue'
-import { editMode, userRelicsInFishingSpot } from './stores/spots'
+import { editMode, localSpotRelics } from './stores/spots'
 
 const lastUpdateDate = new Date('2026-07-09')
-const formatter = new Intl.DateTimeFormat('en-US', {
+const formatter = new Intl.DateTimeFormat(undefined, {
   weekday: 'long',
   day: 'numeric',
   month: 'short',
@@ -67,7 +67,7 @@ function copyText(event: MouseEvent) {
       <textarea
         class="text-block"
         readonly
-        :value="JSON.stringify(userRelicsInFishingSpot, null, 2)"
+        :value="JSON.stringify(localSpotRelics, null, 2)"
         v-on:click="copyText"
       ></textarea>
     </div>

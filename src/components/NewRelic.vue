@@ -37,8 +37,8 @@ function handleSubmit(event) {
     <label>
       <svg class="plus" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">
         <circle cx="50" cy="50" r="45" fill="white" stroke-width="2"/>
-        <line x1="50" y1="20" x2="50" y2="80" stroke="black" stroke-width="5" stroke-linecap="round"/>
-        <line x1="20" y1="50" x2="80" y2="50" stroke="black" stroke-width="5" stroke-linecap="round"/>
+        <line x1="50" y1="20" x2="50" y2="80" stroke="black" stroke-width="6" stroke-linecap="round"/>
+        <line x1="20" y1="50" x2="80" y2="50" stroke="black" stroke-width="6" stroke-linecap="round"/>
       </svg>
       <input type="text"
         ref="inputEl"    v-model="inputValue"
@@ -60,14 +60,15 @@ function handleSubmit(event) {
   pointer-events: none;
 }
 svg {
-  width: 100%;
+  width: 50%;
   height: 100%;
   display: block;
   position: absolute;
   top: 0;
-  left: 0;
+  left: 50%;
   transform-origin: 50% 50%;
-  scale: 0.4;
+  translate: -50% 0;
+  scale: 0.3;
   cursor: pointer;
   :focus-within > & {
     display: none;
@@ -76,10 +77,12 @@ svg {
   cursor: text;
 }
 .new-relic input[type="text"] {
+  translate: 0 8px;
   appearance: none;
   border: none;
-  width: 100px;
-  height: 34px;
+  outline: none;
+  width: 80px;
+  height: 26px;
   text-align: center;
   &::placeholder {
     color: var(--color-placeholder);
@@ -92,6 +95,6 @@ svg {
     pointer-events: all;
   }
   text-transform: uppercase;
-  font-size: 18px;
+  font-size: 16px;
 }
 </style>
