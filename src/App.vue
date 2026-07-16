@@ -7,7 +7,7 @@ import { maps } from '@/data.ts'
 import OpenLinkIcon from './components/OpenLinkIcon.vue'
 import { editMode, localSpotRelics } from './stores/spots'
 
-const lastUpdateDate = new Date('2026-07-09')
+const lastUpdateDate = new Date('2026-07-16')
 const formatter = new Intl.DateTimeFormat(undefined, {
   weekday: 'long',
   day: 'numeric',

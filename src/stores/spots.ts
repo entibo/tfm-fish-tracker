@@ -4,7 +4,7 @@ import spots from '@/spots.json'
 
 const KEY_SPOT_RELICS = 'fishing-spots'
 const KEY_VERSION = 'fishing-spots-version'
-const VERSION = '2026-07-09' // Change this to wipe previous local data
+const VERSION = '2026-07-16' // Change this to wipe previous local data
 
 export const editMode = ref(false)
 {
