@@ -24,15 +24,15 @@
   "antic2": ["D7"],
   "antic3": ["F8"],
   "antic4": ["D2"],
-  "antic5": ["D4"],
+  "antic5": ["C5", "D4"],
   "antic6": ["A2"],
   "antic7": ["D10"],
   "antic8": ["D8"],
   "crystal1": ["E2", "E4"],
   "crystal2": ["D6"],
-  "crystal3": ["B1"],
+  "crystal3": ["B1", "B9"],
   "crystal4": ["C10"],
   "crystal5": [],
-  "crystal6": [],
+  "crystal6": ["A5"],
   "crystal7": ["C1"]
 }
