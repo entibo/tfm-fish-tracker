@@ -1,6 +1,6 @@
 {
   "waterfall1": ["E7"],
-  "waterfall2": ["A3"],
+  "waterfall2": ["A3", "B4"],
   "waterfall3": ["B10", "F9"],
   "waterfall4": ["C2", "F6"],
   "jungle1": ["B3"],
