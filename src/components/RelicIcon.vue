@@ -37,6 +37,11 @@ const numCoins = relicValueMap[relic]
   display: flex;
   position: relative;
   user-select: none;
+  image-rendering: pixelated;
+  &:hover {
+    scale: 1.1;
+    z-index: 13;
+  }
 }
 
 .relic-name {

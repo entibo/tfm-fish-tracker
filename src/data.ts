@@ -48,7 +48,7 @@ export const fishingSpotCoordinates: Record<
 
   dinosaur1: { x: 700, y: 60 },
   dinosaur2: { x: 690, y: 340 },
-  dinosaur3: { x: 235, y: 20 },
+  dinosaur3: { x: 235, y: 30 },
   dinosaur4: { x: 420, y: 340 },
 
   shipwreck1: { x: 540, y: 90 },

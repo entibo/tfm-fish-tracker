@@ -107,10 +107,14 @@ input {
   cursor: pointer;
   display: flex;
   align-items: center;
+  &:hover {
+    scale: 1.1;
+    z-index: 13;
+  }
 }
 input,
 .icon-checkbox {
-  outline: 2px solid var(--color-background);
+  outline: 4px solid var(--color-background);
   outline-offset: -2px;
 }
 </style>

@@ -5,22 +5,22 @@ import RelicGrid from './components/RelicGrid.vue'
 import TextInput from './components/TextInput.vue'
 import { maps } from '@/data.ts'
 import OpenLinkIcon from './components/OpenLinkIcon.vue'
-import { editMode, localSpotRelics } from './stores/spots'
+import { lastResetDate } from './stores/spots'
+import { computed } from 'vue'
 
-const lastUpdateDate = new Date('2026-07-16')
-const formatter = new Intl.DateTimeFormat(undefined, {
-  weekday: 'long',
-  day: 'numeric',
-  month: 'short',
+const relativeTime = new Intl.RelativeTimeFormat(undefined, {
+  numeric: 'auto', // Shows "today" instead of "in 0 days"
 })
 
-const updateDateString = formatter.format(lastUpdateDate) // "Thursday, Jul 9"
-
-function copyText(event: MouseEvent) {
-  const textarea = event.target
-  textarea?.select()
-  navigator.clipboard.writeText(textarea.value)
-}
+const updateDateString = computed(() => {
+  const now = new Date()
+  const lastReset = lastResetDate.value
+  const diffTime = Math.abs(now.getTime() - lastReset.getTime())
+  const HOUR = 1000 * 60 * 60
+  const DAY = HOUR * 24
+  if (diffTime < DAY) return relativeTime.format(-Math.floor(diffTime / HOUR), 'hour')
+  return relativeTime.format(-Math.floor(diffTime / DAY), 'day')
+})
 </script>
 
 <template>
@@ -43,8 +43,8 @@ function copyText(event: MouseEvent) {
     <div class="info text-block">
       <div class="section">
         <div>
+          <span class="emoji">🔄</span> Relics moved
           <span class="date">{{ updateDateString }}</span>
-          Relic locations have changed!
         </div>
       </div>
       <div class="section">
@@ -59,23 +59,6 @@ function copyText(event: MouseEvent) {
         </div>
       </div>
     </div>
-  </div>
-
-  <div class="side" v-if="editMode">
-    <button>Exit Edit Mode</button>
-    <div class="textarea-container">
-      <textarea
-        class="text-block"
-        readonly
-        :value="JSON.stringify(localSpotRelics, null, 2)"
-        v-on:click="copyText"
-      ></textarea>
-    </div>
-    <button>
-      <a href="https://github.com/entibo/tfm-fish-tracker/edit/main/src/spots.json" target="_blank"
-        >Edit on GitHub</a
-      >
-    </button>
   </div>
 </template>
 
@@ -122,21 +105,11 @@ function copyText(event: MouseEvent) {
 .flex {
   display: flex;
 }
+
 .thumbnails {
   display: flex;
   width: 360px;
   flex-wrap: wrap-reverse;
-}
-.thumbnail {
-  display: contents;
-}
-.thumbnail img {
-  outline: 4px solid var(--color-background);
-  outline-offset: -2px;
-}
-.thumbnail img,
-.wiki-link {
-  width: 120px;
 }
 .wiki-link {
   display: flex;
@@ -146,7 +119,9 @@ function copyText(event: MouseEvent) {
     margin-right: 0.5em;
   }
   font-size: 20px;
+  margin: auto;
 }
+
 .text-block {
   color: black;
   background-color: rgb(241, 234, 231);
@@ -154,7 +129,7 @@ function copyText(event: MouseEvent) {
 .info {
   background-color: rgb(213, 228, 222);
   padding-inline: 0.5em;
-  padding-block: 0.2em;
+  padding-block: 0.3em;
   margin-top: 4px;
   display: flex;
   justify-content: space-between;
@@ -168,12 +143,15 @@ function copyText(event: MouseEvent) {
     gap: 1em;
   }
 
+  .emoji {
+    margin-inline: 0.1em;
+  }
   .date {
-    font-size: smaller;
-    color: darkblue;
-    padding: 0.2em 0.4em;
-    border-radius: 4px;
-    background: rgba(10, 0, 50, 10%);
+    /*font-size: smaller;*/
+    color: #3c3764dd;
+    padding-inline: 0.2em;
+    /*border-radius: 3px;*/
+    /*background: rgba(10, 0, 100, 10%);*/
   }
 }
 </style>

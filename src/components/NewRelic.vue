@@ -1,11 +1,8 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import{relicListFromString} from "@/util"
-
-
+import { relicListFromString } from '@/util'
 
 import { submitUserRelicPosition } from '@/stores/spots.ts'
-
 
 const { spot } = defineProps<{
   spot: string
@@ -13,12 +10,13 @@ const { spot } = defineProps<{
 
 const inputValue = ref('')
 
-function handleBlur(){
-  inputValue.value = ""
+function handleBlur() {
+  inputValue.value = ''
 }
-function resetAndHide(event){  // Escape key: reset and blur
-inputValue.value = ""
-event.target.blur()
+function resetAndHide(event) {
+  // Escape key: reset and blur
+  inputValue.value = ''
+  event.target?.blur()
 }
 function handleSubmit(event) {
   const value = inputValue.value
@@ -26,7 +24,7 @@ function handleSubmit(event) {
   resetAndHide(event)
 
   const relics = relicListFromString(value)
-  for(const relic of relics){
+  for (const relic of relics) {
     submitUserRelicPosition(spot, relic)
   }
 }
@@ -35,17 +33,16 @@ function handleSubmit(event) {
 <template>
   <div class="new-relic">
     <label>
-      <svg class="plus" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">
-        <circle cx="50" cy="50" r="45" fill="white" stroke-width="2"/>
-        <line x1="50" y1="20" x2="50" y2="80" stroke="black" stroke-width="6" stroke-linecap="round"/>
-        <line x1="20" y1="50" x2="80" y2="50" stroke="black" stroke-width="6" stroke-linecap="round"/>
-      </svg>
-      <input type="text"
-        ref="inputEl"    v-model="inputValue"
+      <!-- <img class="plus" src="/img/plus.png" height="16" /> -->
+      <div class="plus relic-name">+</div>
+      <input
+        type="text"
+        ref="inputEl"
+        v-model="inputValue"
         @blur="handleBlur"
         @keyup.enter="handleSubmit"
         @keyup.escape="resetAndHide"
-      ></input>
+      />
     </label>
   </div>
 </template>
@@ -54,47 +51,63 @@ function handleSubmit(event) {
 .new-relic {
   height: 40px;
   position: absolute;
-  left: 50%;
-  top: 19px;
-  translate: -50% 0;
+  right: 0;
+  bottom: 0;
   pointer-events: none;
+  z-index: 100;
+  translate: 50% 50%;
 }
-svg {
-  width: 50%;
-  height: 100%;
-  display: block;
+.plus {
   position: absolute;
-  top: 0;
+  top: 50%;
   left: 50%;
-  transform-origin: 50% 50%;
-  translate: -50% 0;
-  scale: 0.3;
+  translate: -50% -50%;
   cursor: pointer;
+  pointer-events: all;
   :focus-within > & {
     display: none;
   }
-  pointer-events: all;
-  cursor: text;
+
+  line-height: 1em;
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  text-shadow:
+    -1px -1px 1px black,
+    1px 1px 1px black,
+    0px 0px 3px black;
+  .solo & {
+    outline: none;
+    border-radius: 100px;
+    outline: 1px solid #ffffffba;
+    background: radial-gradient(#19250d33, transparent);
+    width: 50px;
+    height: 50px;
+    display: flex;
+    place-items: center;
+    justify-content: center;
+  }
 }
-.new-relic input[type="text"] {
-  translate: 0 8px;
+.new-relic input[type='text'] {
   appearance: none;
   border: none;
   outline: none;
-  width: 80px;
+
+  translate: 0 8px;
+  width: 40px;
   height: 26px;
+
+  border: 1px solid var(--color-background);
+  background-color: rgba(255, 255, 255, 90%);
+  text-transform: uppercase;
+  font-size: 16px;
   text-align: center;
-  &::placeholder {
-    color: var(--color-placeholder);
-  }
-  background-color: rgba(255,255,255, 90%);
+
   opacity: 0;
   pointer-events: none;
   &:focus {
     opacity: 1;
     pointer-events: all;
   }
-  text-transform: uppercase;
-  font-size: 16px;
 }
 </style>
