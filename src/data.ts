@@ -1,12 +1,12 @@
 export const mapImages = {
-  jungle: 'jungle.jpg',
-  boat: 'boat.jpg',
-  waterfall: 'waterfall.jpg',
-  island: 'island.jpg',
-  dinosaur: 'dinosaur.jpg',
-  crystal: 'crystal.jpg',
-  antic: 'antic.png',
-  shipwreck: 'shipwreck.png',
+  jungle: 'jungle',
+  boat: 'boat',
+  waterfall: 'waterfall',
+  island: 'island',
+  dinosaur: 'dinosaur',
+  crystal: 'crystal',
+  antic: 'antic',
+  shipwreck: 'shipwreck',
 }
 
 export type FishingMap = keyof typeof mapImages

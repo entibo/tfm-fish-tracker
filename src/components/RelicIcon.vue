@@ -7,7 +7,6 @@ const { relic, coins } = defineProps<{
   coins: boolean
 }>()
 
-const imageUrl = `/img/relic/${relic}.jpg`
 const numCoins = relicValueMap[relic]
 </script>
 
@@ -22,7 +21,7 @@ const numCoins = relicValueMap[relic]
     }"
     v-on:click="relicStore.toggle(relic)"
   >
-    <img :src="imageUrl" width="40" height="40" />
+    <img :src="`/img/relic/${relic}.jpg`" width="40" height="40" />
     <div class="relic-name">{{ relic }}</div>
     <div class="coins" v-if="coins">
       <div v-for="n in numCoins" :key="n" class="coin">

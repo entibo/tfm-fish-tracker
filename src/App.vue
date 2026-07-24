@@ -110,6 +110,7 @@ const updateDateString = computed(() => {
   display: flex;
   width: 360px;
   flex-wrap: wrap-reverse;
+  z-index: 10;
 }
 .wiki-link {
   display: flex;

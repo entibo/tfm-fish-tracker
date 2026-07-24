@@ -3,10 +3,19 @@ import { mapImages, type FishingMap } from '@/data.ts'
 const { map } = defineProps<{
   map: FishingMap
 }>()
-
-const imageUrl = `/img/map/${mapImages[map]}`
 </script>
 
 <template>
-  <img :src="imageUrl" />
+  <picture>
+    <source :srcset="`/img/map/${mapImages[map]}.webp`" type="image/webp" />
+    <img :src="`/img/map/${mapImages[map]}.jpg`" />
+  </picture>
 </template>
+
+<style scoped>
+picture {
+  display: block;
+  font-size: 0;
+  line-height: 0;
+}
+</style>

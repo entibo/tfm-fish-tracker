@@ -11,11 +11,14 @@ const { map } = defineProps<{
   <a class="thumbnail" :href="'#' + map"><MapImage :map="map"></MapImage></a>
 </template>
 
-<style scoped>
-.thumbnail {
+<style>
+/*.thumbnail {
   display: contents;
-}
+}*/
 .thumbnail img {
+  width: 120px;
+  height: 80px;
+  object-fit: fill;
   outline: 4px solid var(--color-background);
   outline-offset: -2px;
   &:hover {
@@ -24,8 +27,5 @@ const { map } = defineProps<{
     scale: 1.06;
     z-index: 13;
   }
-}
-.thumbnail img {
-  width: 120px;
 }
 </style>
